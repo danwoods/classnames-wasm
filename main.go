@@ -1,5 +1,5 @@
 package main
-import "fmt"
+// import "fmt"
 
 
 func main() { 
@@ -9,7 +9,7 @@ func main() {
 
 func classnames(messages ...interface{}) {
   for _, i := range messages {
-    fmt.Println(i)
+    println(i)
   }
 }
 
