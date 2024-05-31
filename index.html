@@ -33,7 +33,7 @@ license that can be found in the LICENSE file.
       mod = result.module;
       console.log(mod)
       inst = result.instance;
-      console.log(inst)
+      console.log(inst.exports.classnames)
       document.getElementById("runButton").disabled = false;
     }).catch((err) => {
       console.error(err);
@@ -42,6 +42,7 @@ license that can be found in the LICENSE file.
     async function run() {
       //console.clear();
       await go.run(inst);
+      //inst.exports.classnames('test');
       inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
     }
   </script>
