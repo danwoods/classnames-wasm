@@ -30,6 +30,7 @@ license that can be found in the LICENSE file.
     console.log(go)
     let mod, inst;
     WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+      console.log(result)
       mod = result.module;
       console.log(mod)
       inst = result.instance;
@@ -41,9 +42,13 @@ license that can be found in the LICENSE file.
 
     async function run() {
       //console.clear();
-      await go.run(inst);
-      //inst.exports.classnames('test');
-      inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
+      console.log('ln:45')
+      go.run(inst);
+      console.log('ln:46')
+      inst.exports.classnames(['test']);
+      inst.exports.classnames('test', 'test2');
+      console.log('ln:47')
+      //inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
     }
   </script>
 
